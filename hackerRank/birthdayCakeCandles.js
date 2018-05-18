@@ -8,7 +8,7 @@ function birthdayCakeCandles(n, ar) {
     } else if (candle === max) {
       maxCount++;
     }
-  })
+  });
 
   return maxCount;
 }

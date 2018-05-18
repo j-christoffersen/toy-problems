@@ -39,41 +39,47 @@ const strongPasswordChecker = function(s) {
   let toReplace = charConstraintCount;
   let moves = 0;
 
+  console.log(toReplace, toSubtract, threes, fours, fives, moves);
+
   [fives, toReplace, moves] = [
     Math.max(0, fives - toReplace),
     Math.max(0, toReplace - fives),
-    Math.min(toReplace, fives)
+    moves + Math.min(toReplace, fives)
   ];
 
   [fours, toReplace, moves] = [
     Math.max(0, fours - toReplace),
     Math.max(0, toReplace - fours),
-    Math.min(toReplace, fours),
+    moves + Math.min(toReplace, fours),
   ];
 
   [threes, toReplace, moves] = [
     Math.max(0, threes - toReplace),
     Math.max(0, toReplace - threes),
-    Math.min(toReplace, threes),
+    moves + Math.min(toReplace, threes),
   ];
+
+  console.log(toReplace, toSubtract, threes, fours, fives, moves);
 
   [threes, toSubtract, moves] = [
     Math.max(0, threes - toSubtract),
     Math.max(0, toSubtract - threes),
-    Math.min(threes, toSubtract),
+    moves + Math.min(threes, toSubtract),
   ];
 
   [fours, toSubtract, moves] = [
     Math.max(0, fours - Math.floor(toSubtract / 2)),
     Math.max(toSubtract % 2, toSubtract - fours * 2),
-    Math.min(toSubtract, fours * 2),
+    moves + Math.min(toSubtract, fours * 2),
   ];
 
   [fives, toSubtract, moves] = [
     Math.max(0, fives - Math.floor(toSubtract / 3)),
     Math.max(toSubtract % 3, toSubtract - fives * 3),
-    Math.min(toSubtract, fives * 3),
+    moves + Math.min(toSubtract, fives * 3),
   ];
+
+  console.log(toReplace, toSubtract, threes, fours, fives, moves);
 
   return toSubtract + toReplace + moves;
 };
