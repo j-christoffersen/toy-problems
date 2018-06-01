@@ -15,7 +15,7 @@ class Tree {
       if (neighbor !== parent) {
         size += this.forEachSubtree(cb, neighbor, node);
       }
-    })
+    });
 
     cb(size);
     return size;
