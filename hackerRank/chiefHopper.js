@@ -5,5 +5,5 @@ function chiefHopper(arr) {
     energy = Math.ceil((energy + arr[i]) / 2);
   }
 
-  }
+  return energy;
 }
